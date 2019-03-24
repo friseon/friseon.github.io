@@ -1,7 +1,17 @@
 .chart-container {
-  padding: 12px;
-  margin-bottom: 12px;
-  font-family: Arial; }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 12px 72px;
+  font-family: Arial;
+  transition: all .3s;
+  position: relative;
+  box-sizing: border-box;
+  height: 100vh; }
+
+.chart-title {
+  margin-top: 0;
+  align-self: flex-start; }
 
 .details-panel {
   position: relative; }
@@ -47,7 +57,8 @@
     transform: translateX(-50%) translateY(-50%);
     border: 2px solid;
     z-index: 100;
-    pointer-events: none; }
+    pointer-events: none;
+    transition: background .3s; }
 
 .line-filter {
   display: flex;
@@ -71,6 +82,7 @@
     transition: all .3s; }
     .line-filter .filter-marker.checked:before {
       content: '\2714';
+      color: #fff;
       font-size: 12px; }
 
 .search-panel {
@@ -84,24 +96,21 @@
   position: relative;
   line-height: 0;
   margin-bottom: 12px; }
-  .range-panel .range-box {
-    position: absolute;
-    height: 100%;
-    border-width: 4px 0;
-    border-color: rgba(255, 255, 255, 0.3);
-    border-style: solid;
-    box-sizing: border-box;
-    cursor: pointer; }
+  .range-panel .range-box,
   .range-panel .range-marker {
     position: absolute;
     height: 100%;
-    background-color: #000;
-    top: 0;
     cursor: pointer;
-    border-color: #fff;
-    border-width: 0;
+    opacity: .4;
+    transition: background .3s; }
+  .range-panel .range-box {
+    border-width: 3px 0;
     border-style: solid;
-    opacity: .3; }
+    box-sizing: border-box; }
+  .range-panel .range-marker {
+    top: 0;
+    border-width: 0;
+    border-style: solid; }
     .range-panel .range-marker.marker-start {
       left: 0;
       border-right-width: 8px; }
@@ -109,15 +118,21 @@
       right: 0;
       border-left-width: 8px; }
 
+.toggler-theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px 4px 4px;
+  position: absolute;
+  bottom: 24px;
+  color: #108be3;
+  font-size: 24px; }
+  .toggler-theme input[type=checkbox] {
+    display: none; }
+
 body {
   padding: 0;
   margin: 0; }
-
-.lock-screen {
-  height: 100%;
-  overflow: hidden;
-  width: 100%;
-  position: fixed; }
 
 .chart {
   display: flex;
